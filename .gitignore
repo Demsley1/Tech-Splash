@@ -73,6 +73,9 @@ typings/
 .env.test
 .DS_Store
 
+# seeds folder
+seeded
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
