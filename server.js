@@ -4,6 +4,7 @@ const routes = require('./controllers')
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const router = require('./controllers/api/user-routes');
 const hbs = exphbs.create({});
 
 const app = express();
