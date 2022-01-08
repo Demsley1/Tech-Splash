@@ -1,0 +1,60 @@
+.top {
+    padding: 20px;
+    background: #08cdd0;
+    font-size: 20px;
+}
+
+.sub-home {
+    font-size: 15px;
+}
+
+a {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: rgb(10, 47, 212);
+    text-shadow: 10px, 10px, 5px rgba(0, 0, 0, .5);
+}
+
+.login:hover {
+    background: darkblue;
+    color: rgb(101, 224, 19);
+    border-radius: 5px;
+}
+
+.post {
+    display: inline-flex;
+    width: 75%;
+    margin: 8px;
+}
+.post-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.username {
+    color:rgb(102, 197, 58);
+    font-weight: light;
+}
+
+.body {
+    display: grid;
+}
+
+.post-header {
+    background:rgb(54, 164, 207);
+    text-align: center;
+}
+
+footer {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-top: 1px solid rgb(138, 138, 138);
+    box-shadow: rgb(133, 130, 130);
+    padding: 10px;
+    font-size: 20px;
+    background: #08cdd0;
+}
