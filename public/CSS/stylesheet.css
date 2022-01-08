@@ -1,3 +1,9 @@
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .top {
     padding: 20px;
     background: #08cdd0;
@@ -15,7 +21,7 @@ a {
 }
 
 a:hover {
-    color: rgb(10, 47, 212);
+    color: rgb(216, 12, 12);
     text-shadow: 10px, 10px, 5px rgba(0, 0, 0, .5);
 }
 
@@ -25,15 +31,9 @@ a:hover {
     border-radius: 5px;
 }
 
-.post {
-    display: inline-flex;
-    width: 75%;
-    margin: 8px;
-}
 .post-link {
     font-size: 20px;
     font-weight: bold;
-    color: black;
 }
 
 .username {
@@ -45,9 +45,28 @@ a:hover {
     display: grid;
 }
 
+.post {
+    width: 75%;
+    margin: 8px;
+}
+
+.single-post {
+    width: 75%
+}
+
 .post-header {
+    display: flex;
+    justify-content: space-between;
     background:rgb(54, 164, 207);
-    text-align: center;
+}
+
+.date {
+    color:rgba(0, 0, 0, .80);
+    font-size: 12px;
+}
+
+.info {
+    padding: 20px;
 }
 
 footer {

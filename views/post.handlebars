@@ -1,0 +1,25 @@
+<article class="card post">
+    <div class="card-header post-header d-grid">
+        <h2>{{post.title}}</h2>
+
+        <a href="{{post.post_url}}" target="_blank">{{post.post_url}}</a>
+    </div>
+    <div class="card-body">
+        <p>{{post.content}}</p><br> <br>
+        by <span class="username">{{post.user.username}}</span>
+        | on <p class="date">{{post.created_at}}</p>
+        
+        {{post.comments.length}} comments
+    </div>
+</article>
+
+<form class="comment-form">
+    <div>
+        <textarea name="comment-text"></textarea>
+    </div>
+    <div>
+        <button type="submit">submit</button>
+    </div>
+</form>
+
+{{>comments post.comments}}
