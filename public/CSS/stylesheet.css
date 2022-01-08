@@ -36,6 +36,17 @@ a:hover {
     font-weight: bold;
 }
 
+textarea:focus{
+    outline: none;
+    border: 1px solid #3486eb;
+}
+  
+textarea {
+    margin: 10px;
+    min-width: 70%;
+    min-height: 200px;
+}
+
 .username {
     color:rgb(102, 197, 58);
     font-weight: light;
@@ -76,4 +87,5 @@ footer {
     padding: 10px;
     font-size: 20px;
     background: #08cdd0;
+    color: white
 }

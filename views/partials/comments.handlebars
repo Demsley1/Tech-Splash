@@ -4,8 +4,9 @@
         <div class="text">
             {{comment_text}}
         </div>
-        <div class="username">
-            {{user.username}} on {{created_at}}
+        <div>
+            <p class="username">{{user.username}} on <span class="date">{{created_at}}</span></p>
         </div>
     </section>
+    {{/each}}
 </div>
