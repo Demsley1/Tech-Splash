@@ -1,4 +1,4 @@
-async function addPostHandler(event) {
+ async function addPostHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('#title-text').value.trim();

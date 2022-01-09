@@ -4,11 +4,10 @@
     {{#each posts as |post|}}
     <article class="card post">
         <div class="card-header post-header d-grid">
-            <a href="/dashboard/edit-post">{{title}}</a>
-
+            <a href="/dashboard/edit/{{post.id}}">{{title}}</a>
         </div>
         <div class="card-body">
-            <p>{{post.content}}</p><br>
+            <p>{{content}}</p><br>
             Date:<p class="date">{{format_date created_at}}</p>
 
             {{comments.length}} {{format_plural "comment" comments.length}}
