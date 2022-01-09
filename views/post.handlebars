@@ -13,6 +13,7 @@
     </div>
 </article>
 
+{{#if loggedIn}}
 <form class="comment-form">
     <div>
         <textarea name="comment-text"></textarea>
@@ -21,5 +22,9 @@
         <button type="submit" class="btn-primary">submit</button>
     </div>
 </form>
+{{/if}}
 
 {{>comments post.comments}}
+{{#if loggedIn}}
+<script src="/scripts/Comment.js"></script>
+{{/if}}

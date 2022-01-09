@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
         ]
     }).then(postData => {
         const posts = postData.map(post => post.get({ plain: true }));
-        res.render('homepage', { posts });
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -32,7 +32,7 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-    
+
     res.render('login');
 });
 
@@ -63,7 +63,7 @@ router.get('/post/:id', (req, res) => {
         }
         const post = postData.get({ plain: true });
 
-        res.render('post', { post });
+        res.render('post', { post, loggedIn: req.session.loggedIn });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
