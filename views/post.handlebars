@@ -2,14 +2,16 @@
     <div class="card-header post-header d-grid">
         <h2>{{post.title}}</h2>
 
-        <a href="{{post.post_url}}" target="_blank">{{post.post_url}}</a>
+        {{#if post.post_url}}
+        <a href="{{post.post_url}}" target="_blank">{{format_url post.post_url}}</a>
+        {{/if}}
     </div>
     <div class="card-body">
         <p>{{post.content}}</p><br> <br>
         by <span class="username">{{post.user.username}}</span>
-        | on <p class="date">{{post.created_at}}</p>
+        | on <p class="date">{{format_date post.created_at}}</p>
         
-        {{post.comments.length}} comments
+        {{post.comments.length}} {{format_plural "comment" comments.length}}
     </div>
 </article>
 
