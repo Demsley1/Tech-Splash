@@ -4,14 +4,15 @@
     <form class="card post edit-post">
         <div class="card-header post-header">
             <label for="edit-title">Title:</label>
-            <input type="text" name="edit-title" id="edit-title" value="{{post.title}}" />
-
-           
-            <p>{{format_url post.post_url}}</p>
+            <input type="text" name="edit-title" id="edit-title" value="{{post.title}}"/>
         </div>
         <div class="d-grid">
             <label for="edit-content">Content:</label>
            <textarea name="edit-content">{{post.content}}</textarea> 
+
+           {{#if post.post_url}}
+           <p>{{format_url post.post_url}}</p>
+           {{/if}}
         </div>
         <div class="card-footer text-center">
             <button type="submit" class="btn btn-success save-post">Save Post</button>

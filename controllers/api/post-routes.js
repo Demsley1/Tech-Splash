@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Get all posts from database with comments and usernames attached
 router.get('/', (req, res) => {
@@ -60,7 +61,7 @@ router.get('/:id', (req, res) => {
 });
 
 // Post/create a new post for user 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     // expects: { "title": "amazing post about super interesting topic", "content": "This is a simple test post for user who want to be featured on my blog site", "post_url": "https://www.samplepost.com/example", "user_id": 1 }
     Post.create({
         title: req.body.title,
@@ -75,7 +76,7 @@ router.post('/', (req, res) => {
 });
 
 // Update a users post by specific id
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     // expects: { "title": "fancy new title", "content": "reading the past text under the post, has made me change to this text"}
     Post.update(
     {
@@ -99,7 +100,7 @@ router.put('/:id', (req, res) => {
 });
 
 // Delete a users specific post at indicated id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

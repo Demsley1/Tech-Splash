@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Get all users, wihtout sending password data over response to server
 router.get('/', (req, res) => {
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 // Get a user at requested id, exclude password from daatabase, and include post and comment data
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {
@@ -45,7 +46,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req,res) => {
+router.post('/', withAuth, (req,res) => {
     // expects { "username": "test_user1", "email": "IamTesting@example.com", "password": "password123" }
     User.create({
         username: req.body.username,
@@ -109,7 +110,7 @@ router.post('/logout', (req, res) => {
 });
 
 // Update user model with parameter at specified id, and include the hook for password hashing
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -128,7 +129,7 @@ router.put('/:id', (req, res) => {
 });
 
 // Delete a user at specified id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id

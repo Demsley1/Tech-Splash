@@ -1,6 +1,8 @@
-<div>
+<div> 
     <h1>Your Posts</h1>
-
+    
+    {{#if posts.length}}
+    <section>
     {{#each posts as |post|}}
     <article class="card post">
         <div class="card-header post-header d-grid">
@@ -18,6 +20,8 @@
         </div>
     </article>
     {{/each}}
+    </section>
+    {{/if}}
 
     <a href="/dashboard/add-post" class="btn btn-danger create-post">Add Post</a>
 </div>
