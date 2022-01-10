@@ -17,15 +17,21 @@
 
 {{#if loggedIn}}
 <form class="comment-form">
-    <div>
-        <textarea name="comment-text"></textarea>
+    <div class="d-grid">
+        <label for="comment-text" class="comment-label">Add a comment:</label>
+        <div>
+            <textarea name="comment-text" id="comment-text"></textarea>
+        </div>
     </div>
     <div>
-        <button type="submit" class="btn-primary">submit</button>
+        <button type="submit" class="btn btn-primary ms-3">submit</button>
     </div>
 </form>
 {{/if}}
 
+<div class="item-container">
+    <h4 class="title"> Comments:</h4>
+</div>
 {{>comments post.comments}}
 {{#if loggedIn}}
 <script src="/scripts/Comment.js"></script>

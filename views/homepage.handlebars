@@ -1,7 +1,11 @@
-<ul class="list-group">
+<div class="item-container">
+    <h1 class="title"> Users Posts</h1>
+</div>
+
+<section class="d-grid justify-content-evenly align-items-start col-6">
     {{#each posts as |post|}}
-    <li>
+    <div>
         {{>post-info post}}
-    </li>
+    </div>
     {{/each}}
-</ul>
+</section>

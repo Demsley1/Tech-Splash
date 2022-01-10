@@ -1,15 +1,22 @@
-<h2> Create Your Post </h2>
-<section>
+<div class="item-container">
+    <h2 class="title"> Create Your Post </h2>
+</div>
+
+<section class="d-grid justify-content-center">
     <form class="card post add-post">
         <div class="card-header post-header">
-            <label for="title-text">Title:</label>
-            <input type="text" name="title-text" id="title-text" />
+            <div>
+                <label for="title-text">Title:</label>
+                <input type="text" name="title-text" id="title-text" />
+            </div>
 
-            <label for="post-url">Post URL:</label>
-            <input type="url" name="post-url" id="post-url" />
+            <div>
+                <label for="post-url">Post URL:</label>
+                <input type="url" name="post-url" id="post-url" />
+            </div>
         </div>
         <div class="d-grid">
-            <label for="post-content">Content:</label>
+            <label for="post-content" class="content-label">Content:</label>
            <textarea name="post-content"></textarea> 
         </div>
         <div class="card-footer text-center">

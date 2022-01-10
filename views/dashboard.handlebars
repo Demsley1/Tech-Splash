@@ -1,8 +1,10 @@
 <div> 
-    <h1>Your Posts</h1>
+    <div class="item-container">
+        <h1 class="title">Your Posts</h1>
+    </div>
     
     {{#if posts.length}}
-    <section>
+    <section class="d-grid m-3 justify-content-center">
     {{#each posts as |post|}}
     <article class="card post">
         <div class="card-header post-header d-grid">
@@ -15,7 +17,7 @@
             {{comments.length}} {{format_plural "comment" comments.length}}
             {{#if post_url}}
             |
-            <a class="text-dark" href="{{post_url}}" target="_blank">{{format_url post.post_url}}</a>
+            <a class="web-link" href="{{post_url}}" target="_blank">{{format_url post.post_url}}</a>
             {{/if}}
         </div>
     </article>
@@ -23,6 +25,8 @@
     </section>
     {{/if}}
 
-    <a href="/dashboard/add-post" class="btn btn-danger create-post">Add Post</a>
+    <div class="item-container">
+        <a href="/dashboard/add-post" class="btn btn-danger create-post">Add Post</a>
+    </div>
 </div>
 

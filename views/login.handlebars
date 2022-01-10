@@ -1,6 +1,14 @@
-<h2>Login</h2>
-<section>
-    <form class="login-form">
+<div class="item-container">
+    <h2 class="title">Login</h2>
+</div>
+
+<section class="d-flex justify-content-center">
+    <form class="login">
+        <div>
+            <p>
+                Login here if you already have an account with us
+            </p>
+        </div>
         <div>
             <label for="email">Email: </label>
             <input type="text" id="email"/>
@@ -12,9 +20,12 @@
         <div>
             <button class="btn btn-info" type="submit">login</button>
         </div>
-    </form><br>
+        <span>Don't have an account yet? Sign-Up Here!</span>
+        <div>  
+            <a  class="btn btn-info" href="/signup">Sign-Up</a>
+        </div>
+    </form>
     
-    <p>Don't have an account yet? Sign-Up Here!</p>
-    <a  class="btn btn-primary" href="/signup">Sign-Up</a>
+    
 </section>
 <script src="/scripts/login.js"></script>

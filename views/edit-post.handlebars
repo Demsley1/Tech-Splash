@@ -1,13 +1,17 @@
-<h2>Edit Your Post Here </h2>
+<div class="item-container">
+    <h2 class="title">Edit Your Post Here </h2>
+</div>
 
 <section>
     <form class="card post edit-post">
         <div class="card-header post-header">
+            <div>
             <label for="edit-title">Title:</label>
             <input type="text" name="edit-title" id="edit-title" value="{{post.title}}"/>
+            </div>
         </div>
         <div class="d-grid">
-            <label for="edit-content">Content:</label>
+            <label for="edit-content" class="content-label">Content:</label>
            <textarea name="edit-content">{{post.content}}</textarea> 
 
            {{#if post.post_url}}
