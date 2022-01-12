@@ -1,11 +1,18 @@
 <div class="item-container">
-    <h1 class="title"> Users Posts</h1>
+    <h1 class="title">All Posts</h1>
 </div>
 
-<section class="d-grid justify-content-evenly align-items-start col-6">
-    {{#each posts as |post|}}
-    <div>
-        {{>post-info post}}
-    </div>
+<section class="d-grid mx-5">
+    {{#each posts as |post|}}   
+        <article class="card post">
+            <div class="card-header post-header">
+                <a class="post-link col-9" href="/post/{{id}}">{{title}}</a>
+
+                <span class="date"> posted: {{format_date created_at}}</span>
+            </div>
+            <div class="info">
+                {{content}}
+            </div>
+        </article>
     {{/each}}
 </section>

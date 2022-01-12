@@ -10,9 +10,11 @@ const hbs = exphbs.create({ helpers });
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const expiry = (new Date(Date.now() + (60*60*1000)));
+
 const sess = {
     secret: process.env.SECRET,
-    cookie: {},
+    cookie: { },
     store: new SequelizeStore({ db: sequelize }),
     resave: false,
     saveUninitialized: true

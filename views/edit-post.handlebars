@@ -2,7 +2,7 @@
     <h2 class="title">Edit Your Post Here </h2>
 </div>
 
-<section>
+<section class="m-4">
     <form class="card post edit-post">
         <div class="card-header post-header">
             <div>
@@ -10,12 +10,12 @@
             <input type="text" name="edit-title" id="edit-title" value="{{post.title}}"/>
             </div>
         </div>
-        <div class="d-grid">
+        <div class="d-grid p-2">
             <label for="edit-content" class="content-label">Content:</label>
            <textarea name="edit-content">{{post.content}}</textarea> 
 
            {{#if post.post_url}}
-           <p>{{format_url post.post_url}}</p>
+            <p>{{format_url post.post_url}}</p>
            {{/if}}
         </div>
         <div class="card-footer text-center">

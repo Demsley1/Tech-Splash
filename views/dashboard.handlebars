@@ -1,32 +1,34 @@
-<div> 
-    <div class="item-container">
-        <h1 class="title">Your Posts</h1>
-    </div>
-    
-    {{#if posts.length}}
-    <section class="d-grid m-3 justify-content-center">
-    {{#each posts as |post|}}
-    <article class="card post">
-        <div class="card-header post-header d-grid">
-            <a href="/dashboard/edit/{{post.id}}">{{title}}</a>
+<div class=" dashboard-con d-grid mb-3">
+    <section>
+        <div class="item-container">
+            <h1 class="title">Your Posts</h1> 
         </div>
-        <div class="card-body">
-            <p>{{content}}</p><br>
-            Date:<p class="date">{{format_date created_at}}</p>
-
-            {{comments.length}} {{format_plural "comment" comments.length}}
-            {{#if post_url}}
-            |
-            <a class="web-link" href="{{post_url}}" target="_blank">{{format_url post.post_url}}</a>
-            {{/if}}
-        </div>
-    </article>
-    {{/each}}
+        
+        {{#if posts.length}}
+        <section class="d-grid m-3 justify-content-center">
+        {{#each posts as |post|}}
+        <article class="card post">
+            <div class="card-header post-header">
+                <a href="/dashboard/edit/{{post.id}}">{{title}}</a>
+            </div>
+            <div class="card-body">
+                <p>{{content}}</p><br><br><br>
+                <div class="d-flex justify-content-between">
+                    <span class="date"> Post Created on: {{format_date created_at}}</span> 
+                    <span>{{comments.length}} {{format_plural "comment" comments.length}}</span>
+                </div>       
+                {{#if post_url}}
+                <a class="web-link" href="{{post_url}}" target="_blank">{{format_url post_url}}</a>
+                {{/if}}
+            </div>
+        </article>
+        {{/each}}
+        </section>
+        {{/if}}
     </section>
-    {{/if}}
 
-    <div class="item-container">
-        <a href="/dashboard/add-post" class="btn btn-danger create-post">Add Post</a>
+    <div class="item-container mt-auto p-2 add-post-btn">
+        <a href="/dashboard/add-post" class="btn btn-success create-post">Add Post</a>
     </div>
 </div>
 

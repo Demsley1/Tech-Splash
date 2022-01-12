@@ -1,22 +1,25 @@
-<article class="card post">
-    <div class="card-header post-header d-grid">
-        <h2>{{post.title}}</h2>
+<section class="d-grid m-3 justify-content-center">
+    <article class="card post">
+        <div class="card-header post-header">
+            <h2 class="post-title">{{post.title}}</h2>   
+        </div>
+        <div class="card-body">
+            <p>{{post.content}}</p><br><br><br>
 
-        {{#if post.post_url}}
-        <a href="{{post.post_url}}" target="_blank">{{format_url post.post_url}}</a>
-        {{/if}}
-    </div>
-    <div class="card-body">
-        <p>{{post.content}}</p><br> <br>
-        by <span class="username">{{post.user.username}}</span>
-        | on <p class="date">{{format_date post.created_at}}</p>
-        
-        {{post.comments.length}} {{format_plural "comment" comments.length}}
-    </div>
-</article>
+            <div class="d-flex justify-content-between">
+            <p class="username"><span class="date">Posted by:</span> {{post.user.username}}<span class="date"> | on {{format_date post.created_at}}</span></p>
+            <p>{{post.comments.length}} {{format_plural "comment" comments.length}}</p>
+            </div>
+
+            {{#if post.post_url}}
+            <a class="web-link" href="{{post.post_url}}" target="_blank">{{format_url post.post_url}}</a>
+            {{/if}}
+        </div>
+    </article>
+</section>
 
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="container comment-form">
     <div class="d-grid">
         <label for="comment-text" class="comment-label">Add a comment:</label>
         <div>
@@ -32,7 +35,9 @@
 <div class="item-container">
     <h4 class="title"> Comments:</h4>
 </div>
-{{>comments post.comments}}
+<section class="container">
+    {{>comments post.comments}}
+</section>
 {{#if loggedIn}}
 <script src="/scripts/Comment.js"></script>
 {{/if}}

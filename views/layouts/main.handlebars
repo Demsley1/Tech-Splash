@@ -9,23 +9,31 @@
     </head>
 
     <body>
-        <header class="top d-flex justify-content-between ">
-            <h1>
+        <header class="top">
+            <h1 class="home-logo">
                 <a href="/">Tech Splash</a>
                 <small class="text-muted sub-home">(free tech blog site)</small>
             </h1>
-            <nav>
-                <a class="nav-item" href="/dashboard">Dashboard</a>
+            <nav class="d-flex justify-content-between">    
+                <div class="frame">              
+                    <a class="nav-item"  href="/dashboard">Dashboard</a>
+                </div>
                 {{#if loggedIn}}
-                <button class="logout btn nav-item" id="logout">Logout</button>
+                <div class="frame">
+                    <button class="logout btn" id="logout">Logout</button>
+                </div>
                 {{else}}
-                <a class="nav-item" href="/login">Login</a>
-                <a class="nav-item" href="/signup">Sign-Up</a>
+                <div class="frame">
+                    <a class="nav-item" href="/login">Login</a>
+                </div>
+                <div class="frame">
+                    <a class="nav-item" href="/signup">Sign-Up</a>
+                </div>
                 {{/if}}
             </nav>
         </header>
 
-        <main class="body">
+        <main>
                 {{{body}}}
         </main>
 

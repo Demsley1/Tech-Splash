@@ -17,11 +17,11 @@ async function signupFormHandler(event){
         });
         
         if(response.ok){
-            document.location.replace('/');    
+            document.location.replace('/');
         } else {
             alert(response.statusText)
         }
     }
 }
 
-document.getElementById('.signup-submit').addEventListener('click',signupFormHandler)
+document.querySelector('.signup-submit').addEventListener('click', signupFormHandler)
