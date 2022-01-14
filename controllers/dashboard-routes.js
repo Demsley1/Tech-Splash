@@ -35,8 +35,23 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // render the add post page from the dashboard routes
-router.get('/add-post',withAuth, (req, res) => {
-    res.render('add-post');
+router.get('/add-post', withAuth, (req, res) => {
+    User.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: { exclude: ['password'] }
+    }).then(userData => {
+        if(!userData){
+            res.status(404).json({ message: "No user found with this id" });
+            return;
+        }
+        const user = userData.get({ plain: true });
+        res.render('add-post', { user, loggedIn: req.session.loggedIn });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 // render the edit post page, be selecting the post data from the specified post id returned from the front end

@@ -11,24 +11,16 @@
     <body>
         <header class="top">
             <h1 class="home-logo">
-                <a href="/">Tech Splash</a>
+                <a class="logo" href="/">Tech Splash</a>
                 <small class="text-muted sub-home">(free tech blog site)</small>
             </h1>
-            <nav class="d-flex justify-content-between">    
-                <div class="frame">              
-                    <a class="nav-item"  href="/dashboard">Dashboard</a>
-                </div>
+            <nav class="d-flex justify-content-between">                     
+                <a class="nav-item"  href="/dashboard">Dashboard</a>
                 {{#if loggedIn}}
-                <div class="frame">
-                    <button class="logout btn" id="logout">Logout</button>
-                </div>
+                <button class="logout btn" id="logout">Logout</button>
                 {{else}}
-                <div class="frame">
-                    <a class="nav-item" href="/login">Login</a>
-                </div>
-                <div class="frame">
-                    <a class="nav-item" href="/signup">Sign-Up</a>
-                </div>
+                <a class="nav-item" href="/login">Login</a>
+                <a class="nav-item" href="/signup">Sign-Up</a>
                 {{/if}}
             </nav>
         </header>
