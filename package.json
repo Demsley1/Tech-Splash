@@ -1,7 +1,7 @@
 {
   "name": "tech-splash",
   "version": "1.0.0",
-  "description": "",
+  "description": "A tech insight blog spot, and forum",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
