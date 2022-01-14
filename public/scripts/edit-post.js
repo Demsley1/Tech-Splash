@@ -7,8 +7,6 @@ async function savePostHandler(event) {
         window.location.toString().split('/').length - 1
     ]
 
- 
-
     if(title && content){
         const response = await fetch(`/api/posts/${id}`, {
             method: 'PUT',

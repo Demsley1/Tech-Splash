@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// Get a user at requested id, exclude password from daatabase, and include post and comment data
+// Get a user at requested id, exclude password from database, and include post and comment data
 router.get('/:id', withAuth, (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
@@ -46,6 +46,7 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
+// create a new user with username, email, and password
 router.post('/', (req,res) => {
     // expects { "username": "test_user1", "email": "IamTesting@example.com", "password": "password123" }
     User.create({
@@ -53,11 +54,13 @@ router.post('/', (req,res) => {
         email: req.body.email,
         password: req.body.password
     }).then(userData => {
+        // save the user data session by attributting the id as the session user_id, username, and recording the user as loggedIn for the session.
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
             req.session.loggedIn = true;
 
+            // return the newly created user data with the added session values
             res.json(userData);
         });
     })      
@@ -78,13 +81,17 @@ router.post('/login', (req, res) => {
             res.status(404).json({ message: "No user found with that email address!" })
             return;
         }
+        // on user post request to login validate the inputed password through bcrypt custom methods
         const validPW = dbUserData.queryPW(req.body.password);
 
+        // if not valid return an error message
         if(!validPW){
+            alert("Incorrect Password");
             res.status(400).json({ message: "invalid password for user" });
             return;
         }
 
+        // otherwise save user credentials as session data, and return a message to the server with the data
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
@@ -98,6 +105,7 @@ router.post('/login', (req, res) => {
     });
 });
 
+// if a user is logged into a session, the destroy when this route is called
 router.post('/logout', (req, res) => {
     if(req.session.loggedIn) {
         req.session.destroy(() => {

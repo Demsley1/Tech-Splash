@@ -22,4 +22,5 @@ async function loginForm(event) {
     }
 }
 
+// find element by class and listen to submit click event to run form handler
 document.querySelector('.login').addEventListener('submit', loginForm)

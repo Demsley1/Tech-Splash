@@ -1,6 +1,8 @@
 const router = require('express').Router();
+// import models to be used as inject data when each route is called by the server
 const { User, Post, Comment } = require('../models');
 
+// get all post data on application's main homepage, and inject and render it to the handlebars homeview page.
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: ['id', 'title', 'content', 'post_url', 'created_at'],
@@ -19,7 +21,9 @@ router.get('/', (req, res) => {
             }
         ]
     }).then(postData => {
+        // iterate through array of post data for each post and map out the data as a new array of serialized data to be used in handlebars
         const posts = postData.map(post => post.get({ plain: true }));
+        // render the main homepage with the posts data array, and the data value for if there is a user session that is logged in already
         res.render('homepage', { posts, loggedIn: req.session.loggedIn });
     }).catch(err => {
         console.log(err);
@@ -27,6 +31,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// if user has a session logged into already then redirect to homepage, otherwise send to login form page.
 router.get('/login', (req, res) => {
     if(req.session.loggedIn){
         res.redirect('/');
@@ -36,6 +41,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+// conditionally send user to sign up page, or redirect to homepage if loggedIn
 router.get('/signup', (req, res) => {
     if(req.session.loggedIn){
         res.redirect('/');
@@ -44,6 +50,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// render a singe post based on the requested post id from the front-end side of the app
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
