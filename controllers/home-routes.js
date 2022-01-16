@@ -50,7 +50,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-// render a singe post based on the requested post id from the front-end side of the app
+// render a single post based on the requested post id from the front-end side of the app
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {

@@ -12,14 +12,14 @@ Post.init(
             autoIncrement: true
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(300),
             allowNull: false,
             validate:{
                 len: [5]
             }
         },
         content: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             defaultValue: "Click to view article",
             validate: {
                 len: [3]
